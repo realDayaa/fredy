@@ -68,5 +68,9 @@
   "deutscheWohnen": {
     "url": "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung",
     "enabled": true
+  },
+  "isihome": {
+    "url": "https://isihome.de/immobilien/?im_order=datedesc",
+    "enabled": true
   }
 }
