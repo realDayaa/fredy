@@ -98,5 +98,9 @@
   "subito": {
     "url": "https://www.subito.it/annunci-lazio/affitto/appartamenti/roma/",
     "enabled": true
+  },
+  "isihome": {
+    "url": "https://isihome.de/immobilien/?im_order=datedesc",
+    "enabled": true
   }
 }
