@@ -118,5 +118,9 @@
   "bienici": {
     "url": "https://www.bienici.com/recherche/location/paris-75000/appartement",
     "enabled": true
+  },
+  "isihome": {
+    "url": "https://isihome.de/immobilien/?im_order=datedesc",
+    "enabled": true
   }
 }
