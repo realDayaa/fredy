@@ -57,16 +57,19 @@ Tick.displayName = 'Tick';
  * for unanswered. It now says whether it is current, and when it is not, it is the control that
  * opens the release notes - a job a warning banner used to do from the top of every page.
  *
+ * @param {{ isAdmin?: boolean }} props
  * @returns {React.ReactElement}
  */
-export default function FredyFooter() {
+export default function FredyFooter({ isAdmin = false }) {
   const t = useTranslation();
   const [notesVisible, setNotesVisible] = useState(false);
   const versionUpdate = useSelector((state) => state.versionUpdate.versionUpdate);
-  const hasUpdate = Boolean(versionUpdate?.newVersion);
+  const updateAvailable = Boolean(versionUpdate?.newVersion);
+  // Only an admin can act on an update, so only an admin is told about one.
+  const hasUpdate = updateAvailable && isAdmin;
   // Only when GitHub actually answered. `newVersion: false` alone is also what an install that
   // cannot reach GitHub (or is rate-limited) gets, and the answer is not in before the request is.
-  const upToDate = !hasUpdate && versionUpdate?.checked === true;
+  const upToDate = !updateAvailable && versionUpdate?.checked === true;
 
   return (
     <footer className="fredyFooter" aria-label={t('footer.landmark')}>

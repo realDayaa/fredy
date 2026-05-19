@@ -280,7 +280,7 @@ export default function FredyApp() {
                     <Route path="*" element={<Navigate to="/dashboard" replace />} />
                   </Routes>
                 </Content>
-                <FredyFooter />
+                <FredyFooter isAdmin={isAdmin()} />
               </Layout>
             </Layout>
           </>
