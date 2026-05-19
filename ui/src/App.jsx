@@ -202,7 +202,7 @@ export default function FredyApp() {
             </Sider>
             <Layout className="app__main">
               <Content className="app__content">
-                {versionUpdate?.newVersion && <VersionBanner />}
+                {versionUpdate?.newVersion && isAdmin() && <VersionBanner />}
                 <DebugLoggingBanner />
                 {settings.demoMode && <DemoBanner />}
                 {settings.analyticsEnabled === null && !settings.demoMode && <TrackingModal />}
