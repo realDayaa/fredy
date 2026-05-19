@@ -307,7 +307,7 @@ export default function FredyApp() {
                     </Routes>
                   </Suspense>
                 </Content>
-                <FredyFooter />
+                <FredyFooter isAdmin={isAdmin()} />
               </Layout>
             </Layout>
           </>
