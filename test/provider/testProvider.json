@@ -78,7 +78,7 @@
     "enabled": true
   },
   "isihome": {
-    "url": "https://isihome.de/immobilien/?im_order=datedesc",
+    "url": "https://isihome.de/immobilien/vermietung/?nutzungsart=wohnen&ort=halle-saale&typ=wohnung&vermarktungsart=miete&status=offen",
     "enabled": true
   }
 }
