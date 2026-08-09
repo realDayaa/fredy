@@ -9,36 +9,50 @@ import { mockFredy, providerConfig } from '../utils.js';
 import { expect } from 'vitest';
 import * as provider from '../../lib/provider/isiHome.js';
 
+/** Run-scoped provider config, built per test via createConfig(). */
+let runConfig;
+
 describe('#isihome testsuite()', () => {
+  runConfig = provider.createConfig(providerConfig.isihome, [], []);
   it('should test isihome provider', async () => {
     const Fredy = await mockFredy();
-    provider.init(providerConfig.isihome, [], []);
+    const mockedJob = {
+      id: 'isihome',
+      notificationAdapter: null,
+      spatialFilter: null,
+      specFilter: null,
+    };
 
-    const fredy = new Fredy(provider.config, null, null, provider.metaInformation.id, 'isihome', similarityCache);
-    const listing = await fredy.execute();
+    return await new Promise((resolve, reject) => {
+      const fredy = new Fredy(runConfig, mockedJob, provider.metaInformation.id, similarityCache, undefined);
 
-    if (listing == null || listing.length === 0) {
-      throw new Error('Listings is empty!');
-    }
+      fredy.execute().then((listing) => {
+        if (listing == null || listing.length === 0) {
+          reject('Listings is empty!');
+          return;
+        }
 
-    expect(listing).toBeInstanceOf(Array);
-    const notificationObj = get();
-    expect(notificationObj).toBeTypeOf('object');
-    expect(notificationObj.serviceName).toBe('isihome');
-    notificationObj.payload.forEach((notify) => {
-      /** check the actual structure **/
-      expect(notify.id).toBeTypeOf('string');
-      expect(notify.price).toBeTypeOf('string');
-      expect(notify.title).toBeTypeOf('string');
-      expect(notify.link).toBeTypeOf('string');
-      expect(notify.address).toBeTypeOf('string');
-      /** check the values if possible **/
-      if (notify.size != null && notify.size.trim().toLowerCase() !== 'k.a.') {
-        expect(notify.size).toContain('m²');
-      }
-      expect(notify.title).not.toBe('');
-      expect(notify.link).toContain('https://isihome.de');
-      expect(notify.address).not.toBe('');
+        expect(listing).toBeInstanceOf(Array);
+        const notificationObj = get();
+        expect(notificationObj).toBeTypeOf('object');
+        expect(notificationObj.serviceName).toBe('isihome');
+        notificationObj.payload.forEach((notify) => {
+          /** check the actual structure **/
+          expect(notify.id).toBeTypeOf('string');
+          expect(notify.price).toBeTypeOf('string');
+          expect(notify.title).toBeTypeOf('string');
+          expect(notify.link).toBeTypeOf('string');
+          expect(notify.address).toBeTypeOf('string');
+          /** check the values if possible **/
+          if (notify.size != null && notify.size.trim().toLowerCase() !== 'k.a.') {
+            expect(notify.size).toContain('m²');
+          }
+          expect(notify.title).not.toBe('');
+          expect(notify.link).toContain('https://isihome.de');
+          expect(notify.address).not.toBe('');
+        });
+        resolve();
+      });
     });
   });
 });
