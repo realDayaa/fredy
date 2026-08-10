@@ -104,5 +104,21 @@
   "leuwo": {
     "url": "https://www.leuwo.de/objekte/",
     "enabled": true
+  },
+  "gwgHalleNeustadt": {
+    "url": "https://www.gwg-halle.de/wohnen/aktuelle-angebote/",
+    "enabled": true
+  },
+  "haNeuerWg": {
+    "url": "https://www.haneuer.de/mietangebote/",
+    "enabled": true
+  },
+  "livingHalle": {
+    "url": "https://www.living-halle.de/immobilien/miete/",
+    "enabled": true
+  },
+  "tagWohnen": {
+    "url": "https://tag-wohnen.de/immosuche?filters[property_city][]=Halle+(Saale)&size=10&view=LIST",
+    "enabled": true
   }
 }
