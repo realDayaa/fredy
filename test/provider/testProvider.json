@@ -72,5 +72,37 @@
   "isihome": {
     "url": "https://isihome.de/immobilien/vermietung/?nutzungsart=wohnen&ort=halle-saale&typ=wohnung&vermarktungsart=miete&status=offen",
     "enabled": true
+  },
+  "gwgGartenstadt": {
+    "url": "https://www.gwg-gartenstadt.de/Aktuelle-Angebote.html",
+    "enabled": true
+  },
+  "wgFreiheit": {
+    "url": "https://www.wgfreiheit.de/wohnungsangebote/",
+    "enabled": true
+  },
+  "froheZukunft": {
+    "url": "https://www.frohe-zukunft.de/wohnfinder/",
+    "enabled": true
+  },
+  "gwgEigeneScholle": {
+    "url": "https://www.gwgeigenescholle.de/wohnungsangebote/",
+    "enabled": true
+  },
+  "wgEisenbahn": {
+    "url": "https://www.wgeisenbahn.de/wohnungen/",
+    "enabled": true
+  },
+  "hallescheBwg": {
+    "url": "https://www.hallebwg.de/wohnen",
+    "enabled": true
+  },
+  "hwg": {
+    "url": "https://www.wohnen-halle.de/suchergebnisse",
+    "enabled": true
+  },
+  "leuwo": {
+    "url": "https://www.leuwo.de/objekte/",
+    "enabled": true
   }
 }
