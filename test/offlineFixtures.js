@@ -132,6 +132,8 @@ export function buildFetchMock() {
   let willhabenHtml = null;
   let flatfoxPins = null;
   let flatfoxListings = null;
+  let leuwoTokenPageHtml = null;
+  let leuwoListData = null;
 
   return async (url) => {
     const urlStr = String(url);
@@ -198,6 +200,22 @@ export function buildFetchMock() {
         results: (deutscheWohnenListData.results ?? []).slice(offset, offset + limit),
       };
       return { ok: true, status: 200, json: () => Promise.resolve(page) };
+    }
+
+    // The token page: getListings() scrapes a fresh `sToken` out of this HTML before calling the API.
+    if (urlStr.includes('leuwo.de/objekte/')) {
+      if (leuwoTokenPageHtml == null) {
+        leuwoTokenPageHtml = (await tryReadFile(path.join(FIXTURES_DIR, 'leuwo.html'))) || '';
+      }
+      return { ok: true, status: 200, text: () => Promise.resolve(leuwoTokenPageHtml) };
+    }
+
+    if (urlStr.includes('leuwo.ivm-professional.de/interface/v1.0/objects/getSearch.json')) {
+      if (!leuwoListData) {
+        const raw = await tryReadFile(path.join(FIXTURES_DIR, 'leuwo_list.json'));
+        leuwoListData = raw ? JSON.parse(raw) : { result: { data: { objects: {}, pages: 1 } } };
+      }
+      return { ok: true, status: 200, json: () => Promise.resolve(leuwoListData) };
     }
 
     throw new Error(`Network request blocked in offline mode: ${urlStr}`);
