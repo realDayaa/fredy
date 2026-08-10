@@ -10,4 +10,4 @@ tools/release/config.json
 .agents
 graft/
 .trail
-
+.env

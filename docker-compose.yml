@@ -7,6 +7,9 @@ services:
     #image: ghcr.io/orangecoding/fredy
     environment:
       - NODE_ENV=production
+      # Pulled from a gitignored .env file in this directory - see README/CLAUDE.md for how to
+      # get a key. Leave unset to keep using the free CloakBrowser binary.
+      - CLOAKBROWSER_LICENSE_KEY=${CLOAKBROWSER_LICENSE_KEY:-}
     volumes:
       - ./conf:/conf
       - ./db:/db
