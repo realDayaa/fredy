@@ -17,6 +17,34 @@ let runConfig;
 // same warm session.
 const TEST_TIMEOUT = 120_000;
 
+describe('#stripBrokenPlaceName()', () => {
+  it('drops a numeric placeName that crashes the Engel & Völkers backend', () => {
+    const url = 'https://www.engelvoelkers.com/de/en/propertysearch?placeIds[]=abc&placeName=06108&searchRadius=5';
+    const sanitized = provider.stripBrokenPlaceName(url);
+
+    expect(new URL(sanitized).searchParams.has('placeName')).toBe(false);
+    expect(new URL(sanitized).searchParams.get('placeIds[]')).toBe('abc');
+    expect(new URL(sanitized).searchParams.get('searchRadius')).toBe('5');
+  });
+
+  it('keeps a real place name untouched', () => {
+    const url = 'https://www.engelvoelkers.com/de/en/propertysearch?placeName=Berlin%2C%20Deutschland';
+
+    expect(new URL(provider.stripBrokenPlaceName(url)).searchParams.get('placeName')).toBe('Berlin, Deutschland');
+  });
+
+  it('keeps a url without placeName untouched', () => {
+    const url = 'https://www.engelvoelkers.com/de/en/propertysearch?searchRadius=5';
+
+    expect(new URL(provider.stripBrokenPlaceName(url)).searchParams.has('placeName')).toBe(false);
+    expect(new URL(provider.stripBrokenPlaceName(url)).searchParams.get('searchRadius')).toBe('5');
+  });
+
+  it('returns the input unchanged when it is not a valid url', () => {
+    expect(provider.stripBrokenPlaceName('not-a-url')).toBe('not-a-url');
+  });
+});
+
 describe('#engelVoelkers testsuite()', () => {
   runConfig = provider.createConfig(providerConfig.engelVoelkers, []);
 
