@@ -12,6 +12,30 @@ import { launchBrowser, closeBrowser } from '../../lib/services/extractor/puppet
 
 const TEST_TIMEOUT = 120_000;
 
+describe('#buildGeocodableAddress()', () => {
+  it('drops a compound district that breaks the Nominatim query', () => {
+    expect(provider.buildGeocodableAddress('Emil-Abderhalden-Str. 23, Zentrum / Stadtmitte, 06108')).toBe(
+      'Emil-Abderhalden-Str. 23, 06108',
+    );
+  });
+
+  it('drops a simple single-word district too', () => {
+    expect(provider.buildGeocodableAddress('Uranusstr. 41, Trotha, 06118')).toBe('Uranusstr. 41, 06118');
+  });
+
+  it('returns the input unchanged when the last segment is not a postal code', () => {
+    expect(provider.buildGeocodableAddress('Uranusstr. 41, Trotha')).toBe('Uranusstr. 41, Trotha');
+  });
+
+  it('returns the input unchanged when there is only one segment', () => {
+    expect(provider.buildGeocodableAddress('Uranusstr. 41')).toBe('Uranusstr. 41');
+  });
+
+  it('returns null for null input', () => {
+    expect(provider.buildGeocodableAddress(null)).toBeNull();
+  });
+});
+
 describe('#froheZukunft testsuite()', () => {
   let browser;
 
