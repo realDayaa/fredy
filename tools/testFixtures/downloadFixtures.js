@@ -358,7 +358,11 @@ async function downloadHtmlProvider(name, providerConfig, launchBrowser, closeBr
 
   const browser = await launchBrowser(providerConfig.url, {});
   try {
+    // Mirrors how the pipeline's Extractor merges these: providers that need waitForNetworkIdle
+    // (client-rendered search results) or a preNavigateUrl (session warm-up against a CDN
+    // challenge) would otherwise get a fixture of the pre-render shell instead of the real listings.
     const html = await puppeteerExtractor(providerConfig.url, providerConfig.waitForSelector, {
+      ...providerConfig.puppeteerOptions,
       browser,
       name: 'dowload_fixtures',
     });
@@ -384,7 +388,7 @@ async function downloadHtmlProvider(name, providerConfig, launchBrowser, closeBr
       }
 
       console.log(`  Downloading ${name} detail...`);
-      const detailHtml = await puppeteerExtractor(detailUrl, null, { browser });
+      const detailHtml = await puppeteerExtractor(detailUrl, null, { ...providerConfig.puppeteerOptions, browser });
       if (detailHtml) {
         await writeFile(path.join(FIXTURES_DIR, `${name}_detail.html`), detailHtml, 'utf-8');
         console.log(`  Saved ${name}_detail.html`);
