@@ -1,0 +1,1254 @@
+{
+  "status": 0,
+  "result": {
+    "message": null,
+    "data": {
+      "total": 5,
+      "limit": 100,
+      "pages": 1,
+      "page": 1,
+      "objects": {
+        "5791": {
+          "order": 2,
+          "id": 5791,
+          "usenr": "Wohnung",
+          "keynumber": "72340/72",
+          "we": "72340",
+          "housenr": "2",
+          "number": "72",
+          "streetname": "Merseburger Str.",
+          "streetnr": "238",
+          "city": "Halle",
+          "zip": "06130",
+          "district": "26",
+          "space": 60.37,
+          "building_space": 0,
+          "building_floors": 5,
+          "rooms": "3.0",
+          "floor": "EG",
+          "direction": "links",
+          "web_status": 1,
+          "web_release": "2026-08-07 12:40:26",
+          "free_date": "2026-11-01",
+          "is_reserve": false,
+          "structural_condition": "green",
+          "contractor": null,
+          "expose": {
+            "title": "Schöne 3 Raum Wohnung mit Balkon zu vermieten!",
+            "url": "https://leuwo.ivm-professional.de/make_pdf/make_pdf.php?flat_id=5791"
+          },
+          "plot": {
+            "url": "https://leuwo.ivm-professional.de/make_pdf/make_gr_pdf.php?flat_id=5791",
+            "title": null,
+            "bfsg": null,
+            "plain_pic_url": "https://leuwo.ivm-professional.de/data/image/plot/5791/paa1bbba4-ea3b0f14.jpg"
+          },
+          "energy_pass": {
+            "url": "https://leuwo.ivm-professional.de/_img/energiepass/Energieausweis Merseburger Str. 238.pdf"
+          },
+          "wbs": false,
+          "wbs_note": null,
+          "description": "",
+          "objectdescription": "",
+          "other": null,
+          "video_link": {
+            "link": null,
+            "youtube_embed_id": null
+          },
+          "video_link_360grad": {
+            "link": null
+          },
+          "image": {
+            "name": "tc9db09db-dbf4aa65.jpg",
+            "url": "https://leuwo.ivm-professional.de/data/image/flat/5791/tc9db09db-dbf4aa65.jpg",
+            "title": null,
+            "bfsg": null
+          },
+          "geoposition": {
+            "latitude": "51.4541395",
+            "longitude": "11.9836928"
+          },
+          "prices": {
+            "rent": 500,
+            "charges": 115,
+            "heating": 115,
+            "parking": 0,
+            "deposit": 1000,
+            "special": 0,
+            "special_text": null,
+            "pausch": 0,
+            "rent_all": 730,
+            "key": 0
+          },
+          "arranger": {
+            "title": "Herrn",
+            "firstname": "Marco",
+            "lastname": "Nachtigall",
+            "phone": "0345 1365711",
+            "mobil": "0162 4083226",
+            "fax": null,
+            "email": "marco.nachtigall@leuwo.de"
+          },
+          "energy_certificate_data": {
+            "energy_certificate_type": {
+              "type": "consumption",
+              "label": "Energieverbrauchsausweis"
+            },
+            "building_energy_demand": 0,
+            "building_energy_consumption": 129.48,
+            "building_heating_energy_source": {
+              "type": "natural gas",
+              "label": "Erdgas"
+            },
+            "building_type": {
+              "type": "apartment building",
+              "label": "Mehrfamilienhaus"
+            },
+            "building_usable_area": 612.88,
+            "objects_count": 8,
+            "building_construction_year": "1929",
+            "technology_construction_year": "0",
+            "object_last_modernization": "0",
+            "energy_efficiency_class": "D",
+            "date_of_expiry": "2028-02-22",
+            "hot_water_included": {
+              "type": "",
+              "label": ""
+            },
+            "hot_water_supply": {
+              "type": "",
+              "label": ""
+            }
+          },
+          "equipments": {
+            "extern": {
+              "label": "Extern",
+              "childs": {
+                "3": {
+                  "id": 3,
+                  "order": 5,
+                  "label": "Elektroherdanschluss",
+                  "detail": ""
+                },
+                "4": {
+                  "id": 4,
+                  "order": 2,
+                  "label": "Küche mit Fenster",
+                  "detail": ""
+                },
+                "6": {
+                  "id": 6,
+                  "order": 4,
+                  "label": "Bad mit Wanne",
+                  "detail": ""
+                },
+                "7": {
+                  "id": 7,
+                  "order": 1,
+                  "label": "Bad mit Fenster",
+                  "detail": ""
+                },
+                "8": {
+                  "id": 8,
+                  "order": 7,
+                  "label": "Kellerabteil",
+                  "detail": ""
+                },
+                "11": {
+                  "id": 11,
+                  "order": 0,
+                  "label": "Balkon / Loggia",
+                  "detail": ""
+                },
+                "22": {
+                  "id": 22,
+                  "order": 3,
+                  "label": "Bad gefliest",
+                  "detail": ""
+                },
+                "23": {
+                  "id": 23,
+                  "order": 6,
+                  "label": "Fliesenspiegel Küche",
+                  "detail": ""
+                }
+              }
+            }
+          },
+          "gallery": {
+            "37808": {
+              "id": 37808,
+              "name": "44b9be4f-9f78aa00.jpg",
+              "description": "Wohnzimmer",
+              "bfsg": "Wohnzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5791/44b9be4f-9f78aa00.jpg"
+            },
+            "37809": {
+              "id": 37809,
+              "name": "c22dcce1-ce68744.jpg",
+              "description": "Wohnzimmer",
+              "bfsg": "Wohnzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5791/c22dcce1-ce68744.jpg"
+            },
+            "37810": {
+              "id": 37810,
+              "name": "9711f44-a37de17f.jpg",
+              "description": "Kinderzimmer",
+              "bfsg": "Kinderzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5791/9711f44-a37de17f.jpg"
+            },
+            "37811": {
+              "id": 37811,
+              "name": "1f965411-2eef0563.jpg",
+              "description": "Kinderzimmer",
+              "bfsg": "Kinderzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5791/1f965411-2eef0563.jpg"
+            },
+            "37812": {
+              "id": 37812,
+              "name": "d4ca87b4-7476f853.jpg",
+              "description": "Schlafzimmer",
+              "bfsg": "Schlafzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5791/d4ca87b4-7476f853.jpg"
+            },
+            "37813": {
+              "id": 37813,
+              "name": "259c3561-5cba013e.jpg",
+              "description": "Schlafzimmer",
+              "bfsg": "Schlafzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5791/259c3561-5cba013e.jpg"
+            },
+            "37814": {
+              "id": 37814,
+              "name": "eec0e6c4-e7ed52d8.jpg",
+              "description": "Bad",
+              "bfsg": "Bad",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5791/eec0e6c4-e7ed52d8.jpg"
+            },
+            "37815": {
+              "id": 37815,
+              "name": "6854946a-85f68ac5.jpg",
+              "description": "Flur",
+              "bfsg": "Flur",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5791/6854946a-85f68ac5.jpg"
+            },
+            "46337": {
+              "id": 46337,
+              "name": "6808cac6-a51847f4.jpg",
+              "description": "Innenhof",
+              "bfsg": "Innenhof",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5791/6808cac6-a51847f4.jpg"
+            },
+            "46338": {
+              "id": 46338,
+              "name": "56d4bfa3-6df21bb6.jpg",
+              "description": "Balkon",
+              "bfsg": "Balkon",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5791/56d4bfa3-6df21bb6.jpg"
+            }
+          }
+        },
+        "5848": {
+          "order": 3,
+          "id": 5848,
+          "usenr": "Wohnung",
+          "keynumber": "72354/36",
+          "we": "72354",
+          "housenr": "5",
+          "number": "36",
+          "streetname": "Rossbachstr.",
+          "streetnr": "48A",
+          "city": "Halle",
+          "zip": "06112",
+          "district": "26",
+          "space": 57.44,
+          "building_space": 0,
+          "building_floors": 3,
+          "rooms": "3.0",
+          "floor": "2.OG",
+          "direction": "rechts",
+          "web_status": 1,
+          "web_release": "2026-08-04 16:53:01",
+          "free_date": "2026-08-01",
+          "is_reserve": false,
+          "structural_condition": "green",
+          "contractor": null,
+          "expose": {
+            "title": "Gepflegte 3-Raumwohnung mit Balkon sucht Nachmieter!",
+            "url": "https://leuwo.ivm-professional.de/make_pdf/make_pdf.php?flat_id=5848"
+          },
+          "plot": {
+            "url": "https://leuwo.ivm-professional.de/make_pdf/make_gr_pdf.php?flat_id=5848",
+            "title": null,
+            "bfsg": null,
+            "plain_pic_url": "https://leuwo.ivm-professional.de/data/image/plot/5848/_gr_rossbach_48a_2ogrechts.jpg"
+          },
+          "energy_pass": {
+            "url": "https://leuwo.ivm-professional.de/_img/energiepass/Energieausweis Rossbachstr. 48A.pdf"
+          },
+          "wbs": false,
+          "wbs_note": null,
+          "description": "Dieses Objekt wird im Jahr 2024 mit Balkonen ausgestattet. ",
+          "objectdescription": "",
+          "other": null,
+          "video_link": {
+            "link": null,
+            "youtube_embed_id": null
+          },
+          "video_link_360grad": {
+            "link": "https://app.immoviewer.com/portal/tour/2967283?accessKey=648a"
+          },
+          "image": {
+            "name": "t4d861133-6ffc8805.jpg",
+            "url": "https://leuwo.ivm-professional.de/data/image/flat/5848/t4d861133-6ffc8805.jpg",
+            "title": null,
+            "bfsg": null
+          },
+          "geoposition": {
+            "latitude": "51.45831",
+            "longitude": "11.98849"
+          },
+          "prices": {
+            "rent": 520,
+            "charges": 109,
+            "heating": 104,
+            "parking": 0,
+            "deposit": 1040,
+            "special": 0,
+            "special_text": null,
+            "pausch": 0,
+            "rent_all": 733,
+            "key": 0
+          },
+          "arranger": {
+            "title": "Frau",
+            "firstname": "Janet",
+            "lastname": "Faika",
+            "phone": "0345 1365714",
+            "mobil": "0151 57669429",
+            "fax": null,
+            "email": "janet.faika@leuwo.de"
+          },
+          "energy_certificate_data": {
+            "energy_certificate_type": {
+              "type": "consumption",
+              "label": "Energieverbrauchsausweis"
+            },
+            "building_energy_demand": 0,
+            "building_energy_consumption": 122.81,
+            "building_heating_energy_source": {
+              "type": "Gas",
+              "label": "Gas"
+            },
+            "building_type": {
+              "type": "apartment building",
+              "label": "Mehrfamilienhaus"
+            },
+            "building_usable_area": 381.61,
+            "objects_count": 6,
+            "building_construction_year": "1940",
+            "technology_construction_year": "1997",
+            "object_last_modernization": null,
+            "energy_efficiency_class": "D",
+            "date_of_expiry": "2028-02-22",
+            "hot_water_included": {
+              "type": "",
+              "label": ""
+            },
+            "hot_water_supply": {
+              "type": "",
+              "label": ""
+            }
+          },
+          "equipments": {
+            "extern": {
+              "label": "Extern",
+              "childs": {
+                "3": {
+                  "id": 3,
+                  "order": 5,
+                  "label": "Elektroherdanschluss",
+                  "detail": ""
+                },
+                "4": {
+                  "id": 4,
+                  "order": 2,
+                  "label": "Küche mit Fenster",
+                  "detail": ""
+                },
+                "6": {
+                  "id": 6,
+                  "order": 4,
+                  "label": "Bad mit Wanne",
+                  "detail": ""
+                },
+                "7": {
+                  "id": 7,
+                  "order": 1,
+                  "label": "Bad mit Fenster",
+                  "detail": ""
+                },
+                "8": {
+                  "id": 8,
+                  "order": 7,
+                  "label": "Kellerabteil",
+                  "detail": ""
+                },
+                "11": {
+                  "id": 11,
+                  "order": 0,
+                  "label": "Balkon / Loggia",
+                  "detail": ""
+                },
+                "22": {
+                  "id": 22,
+                  "order": 3,
+                  "label": "Bad gefliest",
+                  "detail": ""
+                },
+                "23": {
+                  "id": 23,
+                  "order": 6,
+                  "label": "Fliesenspiegel Küche",
+                  "detail": ""
+                }
+              }
+            }
+          },
+          "gallery": {
+            "27752": {
+              "id": 27752,
+              "name": "_ivm_IMG_3425.jpg",
+              "description": "Eingangsbereich und Flur",
+              "bfsg": "Eingangsbereich und Flur",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3425.jpg"
+            },
+            "27753": {
+              "id": 27753,
+              "name": "_ivm_IMG_3427.jpg",
+              "description": "Wohnzimmer",
+              "bfsg": "Wohnzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3427.jpg"
+            },
+            "27757": {
+              "id": 27757,
+              "name": "_ivm_IMG_3432.jpg",
+              "description": "Wohnzimmer",
+              "bfsg": "Wohnzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3432.jpg"
+            },
+            "27759": {
+              "id": 27759,
+              "name": "_ivm_IMG_3434.jpg",
+              "description": "Schlafzimmer",
+              "bfsg": "Schlafzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3434.jpg"
+            },
+            "27761": {
+              "id": 27761,
+              "name": "_ivm_IMG_3436.jpg",
+              "description": "Schlafzimmer",
+              "bfsg": "Schlafzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3436.jpg"
+            },
+            "27762": {
+              "id": 27762,
+              "name": "_ivm_IMG_3438.jpg",
+              "description": "Kinder- / Arbeitszimmer",
+              "bfsg": "Kinder- / Arbeitszimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3438.jpg"
+            },
+            "27763": {
+              "id": 27763,
+              "name": "_ivm_IMG_3439.jpg",
+              "description": "Kinder- / Arbeitszimmer",
+              "bfsg": "Kinder- / Arbeitszimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3439.jpg"
+            },
+            "27764": {
+              "id": 27764,
+              "name": "_ivm_IMG_3440.jpg",
+              "description": "Flur",
+              "bfsg": "Flur",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3440.jpg"
+            },
+            "27765": {
+              "id": 27765,
+              "name": "_ivm_IMG_3441.jpg",
+              "description": "Küche",
+              "bfsg": "Küche",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3441.jpg"
+            },
+            "27766": {
+              "id": 27766,
+              "name": "_ivm_IMG_3443.jpg",
+              "description": "Küche",
+              "bfsg": "Küche",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3443.jpg"
+            },
+            "27767": {
+              "id": 27767,
+              "name": "_ivm_IMG_3444.jpg",
+              "description": "Bad mit Wanne",
+              "bfsg": "Bad mit Wanne",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3444.jpg"
+            },
+            "27769": {
+              "id": 27769,
+              "name": "_ivm_IMG_3447.jpg",
+              "description": "Bad mit Wanne",
+              "bfsg": "Bad mit Wanne",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3447.jpg"
+            },
+            "27770": {
+              "id": 27770,
+              "name": "_ivm_IMG_3448.jpg",
+              "description": "Treppenhaus",
+              "bfsg": "Treppenhaus",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_ivm_IMG_3448.jpg"
+            },
+            "27771": {
+              "id": 27771,
+              "name": "_vr_2967283_marketing.jpg",
+              "description": "Virtueller Rundgang",
+              "bfsg": "Virtueller Rundgang",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5848/_vr_2967283_marketing.jpg"
+            }
+          }
+        },
+        "5934": {
+          "order": 0,
+          "id": 5934,
+          "usenr": "Wohnung",
+          "keynumber": "72332/127",
+          "we": "72332",
+          "housenr": "2",
+          "number": "127",
+          "streetname": "Tuerkstr.",
+          "streetnr": "33",
+          "city": "Halle",
+          "zip": "06110",
+          "district": "29",
+          "space": 49.84,
+          "building_space": 0,
+          "building_floors": 4,
+          "rooms": "2.0",
+          "floor": "2.OG",
+          "direction": "links",
+          "web_status": 1,
+          "web_release": "2026-08-07 12:40:26",
+          "free_date": "2026-07-02",
+          "is_reserve": false,
+          "structural_condition": "green",
+          "contractor": null,
+          "expose": {
+            "title": "Tolle 2 Raum Wohnung mit Balkon!",
+            "url": "https://leuwo.ivm-professional.de/make_pdf/make_pdf.php?flat_id=5934"
+          },
+          "plot": {
+            "url": "https://leuwo.ivm-professional.de/make_pdf/make_gr_pdf.php?flat_id=5934",
+            "title": null,
+            "bfsg": null,
+            "plain_pic_url": "https://leuwo.ivm-professional.de/data/image/plot/5934/pceea7045-e7d7eb6e.jpg"
+          },
+          "energy_pass": {
+            "url": "https://leuwo.ivm-professional.de/_img/energiepass/Energieausweis Türkstraße 33.pdf"
+          },
+          "wbs": false,
+          "wbs_note": null,
+          "description": "",
+          "objectdescription": "",
+          "other": null,
+          "video_link": {
+            "link": null,
+            "youtube_embed_id": null
+          },
+          "video_link_360grad": {
+            "link": null
+          },
+          "image": {
+            "name": "td98605bc-36ec9412.jpg",
+            "url": "https://leuwo.ivm-professional.de/data/image/flat/5934/td98605bc-36ec9412.jpg",
+            "title": null,
+            "bfsg": null
+          },
+          "geoposition": {
+            "latitude": "51.4682037",
+            "longitude": "11.9806633"
+          },
+          "prices": {
+            "rent": 410,
+            "charges": 92.5,
+            "heating": 87.5,
+            "parking": 0,
+            "deposit": 820,
+            "special": 0,
+            "special_text": null,
+            "pausch": 0,
+            "rent_all": 590,
+            "key": 0
+          },
+          "arranger": {
+            "title": "Herrn",
+            "firstname": "Marco",
+            "lastname": "Nachtigall",
+            "phone": "0345 1365711",
+            "mobil": "0162 4083226",
+            "fax": null,
+            "email": "marco.nachtigall@leuwo.de"
+          },
+          "energy_certificate_data": {
+            "energy_certificate_type": {
+              "type": "consumption",
+              "label": "Energieverbrauchsausweis"
+            },
+            "building_energy_demand": 0,
+            "building_energy_consumption": 133.27,
+            "building_heating_energy_source": {
+              "type": "Gas",
+              "label": "Gas"
+            },
+            "building_type": {
+              "type": "apartment building",
+              "label": "Mehrfamilienhaus"
+            },
+            "building_usable_area": 1864.62,
+            "objects_count": 29,
+            "building_construction_year": "1935",
+            "technology_construction_year": "0",
+            "object_last_modernization": "0",
+            "energy_efficiency_class": null,
+            "date_of_expiry": "2018-06-30",
+            "hot_water_included": {
+              "type": "",
+              "label": ""
+            },
+            "hot_water_supply": {
+              "type": "",
+              "label": ""
+            }
+          },
+          "equipments": {
+            "extern": {
+              "label": "Extern",
+              "childs": {
+                "3": {
+                  "id": 3,
+                  "order": 5,
+                  "label": "Elektroherdanschluss",
+                  "detail": ""
+                },
+                "4": {
+                  "id": 4,
+                  "order": 2,
+                  "label": "Küche mit Fenster",
+                  "detail": ""
+                },
+                "6": {
+                  "id": 6,
+                  "order": 4,
+                  "label": "Bad mit Wanne",
+                  "detail": ""
+                },
+                "7": {
+                  "id": 7,
+                  "order": 1,
+                  "label": "Bad mit Fenster",
+                  "detail": ""
+                },
+                "8": {
+                  "id": 8,
+                  "order": 7,
+                  "label": "Kellerabteil",
+                  "detail": ""
+                },
+                "11": {
+                  "id": 11,
+                  "order": 0,
+                  "label": "Balkon / Loggia",
+                  "detail": ""
+                },
+                "22": {
+                  "id": 22,
+                  "order": 3,
+                  "label": "Bad gefliest",
+                  "detail": ""
+                },
+                "23": {
+                  "id": 23,
+                  "order": 6,
+                  "label": "Fliesenspiegel Küche",
+                  "detail": ""
+                }
+              }
+            }
+          },
+          "gallery": {
+            "43216": {
+              "id": 43216,
+              "name": "60a4e630-fef41aa9.jpg",
+              "description": null,
+              "bfsg": null,
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5934/60a4e630-fef41aa9.jpg"
+            },
+            "45149": {
+              "id": 45149,
+              "name": "a07b5d24-b7ca4809.jpg",
+              "description": "Wohnzimmer",
+              "bfsg": "Wohnzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5934/a07b5d24-b7ca4809.jpg"
+            },
+            "45150": {
+              "id": 45150,
+              "name": "6b278e81-fcbd1602.jpg",
+              "description": "Wohnzimmer",
+              "bfsg": "Wohnzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5934/6b278e81-fcbd1602.jpg"
+            },
+            "45151": {
+              "id": 45151,
+              "name": "edb3fc2f-a9ebddc.jpg",
+              "description": "Küche",
+              "bfsg": "Küche",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5934/edb3fc2f-a9ebddc.jpg"
+            },
+            "45152": {
+              "id": 45152,
+              "name": "26ef2f8a-b2284494.jpg",
+              "description": "Küche",
+              "bfsg": "Küche",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5934/26ef2f8a-b2284494.jpg"
+            },
+            "45153": {
+              "id": 45153,
+              "name": "300864df-b3329d94.jpg",
+              "description": "Bad",
+              "bfsg": "Bad",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5934/300864df-b3329d94.jpg"
+            },
+            "45154": {
+              "id": 45154,
+              "name": "fb54b77a-549428e9.jpg",
+              "description": "Schlafzimmer",
+              "bfsg": "Schlafzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5934/fb54b77a-549428e9.jpg"
+            },
+            "45155": {
+              "id": 45155,
+              "name": "a0205af-db75a3e9.jpg",
+              "description": "Schlafzimmer",
+              "bfsg": "Schlafzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5934/a0205af-db75a3e9.jpg"
+            },
+            "45156": {
+              "id": 45156,
+              "name": "c15ed60a-e3dba477.jpg",
+              "description": "Flur",
+              "bfsg": "Flur",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/5934/c15ed60a-e3dba477.jpg"
+            }
+          }
+        },
+        "6581": {
+          "order": 1,
+          "id": 6581,
+          "usenr": "Wohnung",
+          "keynumber": "72354/91",
+          "we": "72354",
+          "housenr": "2",
+          "number": "91",
+          "streetname": "Rossbachstr.",
+          "streetnr": "54",
+          "city": "Halle",
+          "zip": "06112",
+          "district": "26",
+          "space": 48.49,
+          "building_space": 0,
+          "building_floors": 3,
+          "rooms": "2.0",
+          "floor": "2.OG",
+          "direction": "rechts",
+          "web_status": 1,
+          "web_release": "2026-08-07 10:24:27",
+          "free_date": "2026-08-01",
+          "is_reserve": false,
+          "structural_condition": "yellow",
+          "contractor": null,
+          "expose": {
+            "title": "2-Raumwohnung mit Wanne und großem Balkon",
+            "url": "https://leuwo.ivm-professional.de/make_pdf/make_pdf.php?flat_id=6581"
+          },
+          "plot": {
+            "url": "https://leuwo.ivm-professional.de/make_pdf/make_gr_pdf.php?flat_id=6581",
+            "title": null,
+            "bfsg": null,
+            "plain_pic_url": "https://leuwo.ivm-professional.de/data/image/plot/6581/p20693daf-1055f053.jpg"
+          },
+          "energy_pass": {
+            "url": "https://leuwo.ivm-professional.de/_img/energiepass/Energieausweis Rossbachstr. 54.pdf"
+          },
+          "wbs": false,
+          "wbs_note": null,
+          "description": "",
+          "objectdescription": "",
+          "other": null,
+          "video_link": {
+            "link": null,
+            "youtube_embed_id": null
+          },
+          "video_link_360grad": {
+            "link": null
+          },
+          "image": {
+            "name": "tcc496264-d7f65f5f.jpg",
+            "url": "https://leuwo.ivm-professional.de/data/image/flat/6581/tcc496264-d7f65f5f.jpg",
+            "title": null,
+            "bfsg": null
+          },
+          "geoposition": {
+            "latitude": "51.45733365",
+            "longitude": "11.98778995"
+          },
+          "prices": {
+            "rent": 420,
+            "charges": 92,
+            "heating": 88,
+            "parking": 0,
+            "deposit": 840,
+            "special": 0,
+            "special_text": null,
+            "pausch": 0,
+            "rent_all": 600,
+            "key": 0
+          },
+          "arranger": {
+            "title": "Frau",
+            "firstname": "Janet",
+            "lastname": "Faika",
+            "phone": "0345 1365714",
+            "mobil": "0151 57669429",
+            "fax": null,
+            "email": "janet.faika@leuwo.de"
+          },
+          "energy_certificate_data": {
+            "energy_certificate_type": {
+              "type": "consumption",
+              "label": "Energieverbrauchsausweis"
+            },
+            "building_energy_demand": 0,
+            "building_energy_consumption": 118.88,
+            "building_heating_energy_source": {
+              "type": "Gas",
+              "label": "Gas"
+            },
+            "building_type": {
+              "type": "apartment building",
+              "label": "Mehrfamilienhaus"
+            },
+            "building_usable_area": 343.08,
+            "objects_count": 6,
+            "building_construction_year": "1937",
+            "technology_construction_year": "1997",
+            "object_last_modernization": "0",
+            "energy_efficiency_class": "D",
+            "date_of_expiry": "2028-02-22",
+            "hot_water_included": {
+              "type": "yes",
+              "label": "ja"
+            },
+            "hot_water_supply": {
+              "type": "central",
+              "label": "zentral"
+            }
+          },
+          "equipments": {
+            "extern": {
+              "label": "Extern",
+              "childs": {
+                "3": {
+                  "id": 3,
+                  "order": 5,
+                  "label": "Elektroherdanschluss",
+                  "detail": ""
+                },
+                "4": {
+                  "id": 4,
+                  "order": 2,
+                  "label": "Küche mit Fenster",
+                  "detail": ""
+                },
+                "6": {
+                  "id": 6,
+                  "order": 4,
+                  "label": "Bad mit Wanne",
+                  "detail": ""
+                },
+                "7": {
+                  "id": 7,
+                  "order": 1,
+                  "label": "Bad mit Fenster",
+                  "detail": ""
+                },
+                "8": {
+                  "id": 8,
+                  "order": 7,
+                  "label": "Kellerabteil",
+                  "detail": ""
+                },
+                "11": {
+                  "id": 11,
+                  "order": 0,
+                  "label": "Balkon / Loggia",
+                  "detail": ""
+                },
+                "22": {
+                  "id": 22,
+                  "order": 3,
+                  "label": "Bad gefliest",
+                  "detail": ""
+                },
+                "23": {
+                  "id": 23,
+                  "order": 6,
+                  "label": "Fliesenspiegel Küche",
+                  "detail": ""
+                }
+              }
+            }
+          },
+          "gallery": {
+            "43945": {
+              "id": 43945,
+              "name": "93499816-1345ebb5.jpg",
+              "description": null,
+              "bfsg": null,
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/6581/93499816-1345ebb5.jpg"
+            },
+            "43946": {
+              "id": 43946,
+              "name": "ae29b1a6-2add1798.jpg",
+              "description": null,
+              "bfsg": null,
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/6581/ae29b1a6-2add1798.jpg"
+            },
+            "43949": {
+              "id": 43949,
+              "name": "66c93ed6-267dffc2.jpg",
+              "description": null,
+              "bfsg": null,
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/6581/66c93ed6-267dffc2.jpg"
+            },
+            "43950": {
+              "id": 43950,
+              "name": "1c096db6-944f6ab5.jpg",
+              "description": null,
+              "bfsg": null,
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/6581/1c096db6-944f6ab5.jpg"
+            }
+          }
+        },
+        "7766": {
+          "order": 4,
+          "id": 7766,
+          "usenr": "Wohnung",
+          "keynumber": "72340/24",
+          "we": "72340",
+          "housenr": "1",
+          "number": "24",
+          "streetname": "Merseburger Str.",
+          "streetnr": "64",
+          "city": "Halle",
+          "zip": "06110",
+          "district": "26",
+          "space": 80.2,
+          "building_space": 0,
+          "building_floors": 5,
+          "rooms": "3.0",
+          "floor": "3.OG",
+          "direction": "links",
+          "web_status": 1,
+          "web_release": "2026-08-07 12:40:26",
+          "free_date": "2026-08-01",
+          "is_reserve": false,
+          "structural_condition": "green",
+          "contractor": null,
+          "expose": {
+            "title": "Helle 3-Raumwohnung mit Balkon und Dusche",
+            "url": "https://leuwo.ivm-professional.de/make_pdf/make_pdf.php?flat_id=7766"
+          },
+          "plot": {
+            "url": "https://leuwo.ivm-professional.de/make_pdf/make_gr_pdf.php?flat_id=7766",
+            "title": null,
+            "bfsg": null,
+            "plain_pic_url": "https://leuwo.ivm-professional.de/data/image/plot/7766/_gr_merseburger_64_3oglinks.jpg"
+          },
+          "energy_pass": {
+            "url": "https://leuwo.ivm-professional.de/_img/energiepass/LEU_7234001_1.pdf"
+          },
+          "wbs": false,
+          "wbs_note": null,
+          "description": "",
+          "objectdescription": "",
+          "other": null,
+          "video_link": {
+            "link": null,
+            "youtube_embed_id": null
+          },
+          "video_link_360grad": {
+            "link": null
+          },
+          "image": {
+            "name": "IMG_0046.JPG",
+            "url": "https://leuwo.ivm-professional.de/data/image/flat/7766/IMG_0046.JPG",
+            "title": null,
+            "bfsg": null
+          },
+          "geoposition": {
+            "latitude": "51.4682812",
+            "longitude": "11.9834419"
+          },
+          "prices": {
+            "rent": 670,
+            "charges": 150,
+            "heating": 140,
+            "parking": 0,
+            "deposit": 1340,
+            "special": 0,
+            "special_text": null,
+            "pausch": 0,
+            "rent_all": 960,
+            "key": 0
+          },
+          "arranger": {
+            "title": "Herrn",
+            "firstname": "Marco",
+            "lastname": "Nachtigall",
+            "phone": "0345 1365711",
+            "mobil": "0162 4083226",
+            "fax": null,
+            "email": "marco.nachtigall@leuwo.de"
+          },
+          "energy_certificate_data": {
+            "energy_certificate_type": {
+              "type": "consumption",
+              "label": "Energieverbrauchsausweis"
+            },
+            "building_energy_demand": 0,
+            "building_energy_consumption": 117.91,
+            "building_heating_energy_source": {
+              "type": "Gas",
+              "label": "Gas"
+            },
+            "building_type": {
+              "type": "apartment building",
+              "label": "Mehrfamilienhaus"
+            },
+            "building_usable_area": 553.67,
+            "objects_count": 8,
+            "building_construction_year": "1935",
+            "technology_construction_year": "0",
+            "object_last_modernization": "0",
+            "energy_efficiency_class": null,
+            "date_of_expiry": "2028-02-22",
+            "hot_water_included": {
+              "type": "yes",
+              "label": "ja"
+            },
+            "hot_water_supply": {
+              "type": "central",
+              "label": "zentral"
+            }
+          },
+          "equipments": {
+            "extern": {
+              "label": "Extern",
+              "childs": {
+                "2": {
+                  "id": 2,
+                  "order": 5,
+                  "label": "Einbauküche",
+                  "detail": ""
+                },
+                "3": {
+                  "id": 3,
+                  "order": 6,
+                  "label": "Elektroherdanschluss",
+                  "detail": ""
+                },
+                "4": {
+                  "id": 4,
+                  "order": 2,
+                  "label": "Küche mit Fenster",
+                  "detail": ""
+                },
+                "5": {
+                  "id": 5,
+                  "order": 4,
+                  "label": "Bad mit Dusche",
+                  "detail": ""
+                },
+                "7": {
+                  "id": 7,
+                  "order": 1,
+                  "label": "Bad mit Fenster",
+                  "detail": ""
+                },
+                "8": {
+                  "id": 8,
+                  "order": 8,
+                  "label": "Kellerabteil",
+                  "detail": ""
+                },
+                "11": {
+                  "id": 11,
+                  "order": 0,
+                  "label": "Balkon / Loggia",
+                  "detail": ""
+                },
+                "22": {
+                  "id": 22,
+                  "order": 3,
+                  "label": "Bad gefliest",
+                  "detail": ""
+                },
+                "23": {
+                  "id": 23,
+                  "order": 7,
+                  "label": "Fliesenspiegel Küche",
+                  "detail": ""
+                }
+              }
+            }
+          },
+          "gallery": {
+            "24749": {
+              "id": 24749,
+              "name": "_ivm_Photo-2023-03-30-09-25-14_1184.jpg",
+              "description": "Flur",
+              "bfsg": "Flur",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-25-14_1184.jpg"
+            },
+            "24750": {
+              "id": 24750,
+              "name": "_ivm_Photo-2023-03-30-09-25-29_1185.jpg",
+              "description": "Flur",
+              "bfsg": "Flur",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-25-29_1185.jpg"
+            },
+            "24751": {
+              "id": 24751,
+              "name": "_ivm_Photo-2023-03-30-09-25-52_1186.jpg",
+              "description": "Küche mit Einbauküche und Balkon",
+              "bfsg": "Küche mit Einbauküche und Balkon",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-25-52_1186.jpg"
+            },
+            "24752": {
+              "id": 24752,
+              "name": "_ivm_Photo-2023-03-30-09-26-09_1187.jpg",
+              "description": "Küche mit Einbauküche und Balkon",
+              "bfsg": "Küche mit Einbauküche und Balkon",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-26-09_1187.jpg"
+            },
+            "24753": {
+              "id": 24753,
+              "name": "_ivm_Photo-2023-03-30-09-26-27_1188.jpg",
+              "description": "Küche mit Einbauküche und Balkon",
+              "bfsg": "Küche mit Einbauküche und Balkon",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-26-27_1188.jpg"
+            },
+            "24754": {
+              "id": 24754,
+              "name": "_ivm_Photo-2023-03-30-09-26-41_1189.jpg",
+              "description": "Blick vom Balkon",
+              "bfsg": "Blick vom Balkon",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-26-41_1189.jpg"
+            },
+            "24755": {
+              "id": 24755,
+              "name": "_ivm_Photo-2023-03-30-09-26-48_1190.jpg",
+              "description": "Balkon",
+              "bfsg": "Balkon",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-26-48_1190.jpg"
+            },
+            "24756": {
+              "id": 24756,
+              "name": "_ivm_Photo-2023-03-30-09-27-13_1191.jpg",
+              "description": "Schlafzimmer",
+              "bfsg": "Schlafzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-27-13_1191.jpg"
+            },
+            "24757": {
+              "id": 24757,
+              "name": "_ivm_Photo-2023-03-30-09-27-48_1193.jpg",
+              "description": "Schlafzimmer",
+              "bfsg": "Schlafzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-27-48_1193.jpg"
+            },
+            "24758": {
+              "id": 24758,
+              "name": "_ivm_Photo-2023-03-30-09-28-07_1194.jpg",
+              "description": "Wohnzimmer",
+              "bfsg": "Wohnzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-28-07_1194.jpg"
+            },
+            "24759": {
+              "id": 24759,
+              "name": "_ivm_Photo-2023-03-30-09-28-21_1195.jpg",
+              "description": "Wohnzimmer",
+              "bfsg": "Wohnzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-28-21_1195.jpg"
+            },
+            "24760": {
+              "id": 24760,
+              "name": "_ivm_Photo-2023-03-30-09-28-45_1197.jpg",
+              "description": "Wohnzimmer",
+              "bfsg": "Wohnzimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-28-45_1197.jpg"
+            },
+            "24761": {
+              "id": 24761,
+              "name": "_ivm_Photo-2023-03-30-09-29-15_1198.jpg",
+              "description": "Kinder- / Arbeitszimmer",
+              "bfsg": "Kinder- / Arbeitszimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-29-15_1198.jpg"
+            },
+            "24762": {
+              "id": 24762,
+              "name": "_ivm_Photo-2023-03-30-09-29-42_1199.jpg",
+              "description": "Kinder- / Arbeitszimmer",
+              "bfsg": "Kinder- / Arbeitszimmer",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-29-42_1199.jpg"
+            },
+            "24763": {
+              "id": 24763,
+              "name": "_ivm_Photo-2023-03-30-09-35-54_1200.jpg",
+              "description": "Bad mit Dusche",
+              "bfsg": "Bad mit Dusche",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-35-54_1200.jpg"
+            },
+            "24764": {
+              "id": 24764,
+              "name": "_ivm_Photo-2023-03-30-09-36-02_1201.jpg",
+              "description": "Bad mit Dusche",
+              "bfsg": "Bad mit Dusche",
+              "url": "https://leuwo.ivm-professional.de/data/image/gallery/7766/_ivm_Photo-2023-03-30-09-36-02_1201.jpg"
+            }
+          }
+        }
+      },
+      "equipment_expose_count": {
+        "2": 1,
+        "3": 5,
+        "4": 5,
+        "5": 1,
+        "6": 4,
+        "7": 5,
+        "8": 5,
+        "11": 5,
+        "22": 5,
+        "23": 5
+      },
+      "equipment_room_count": false
+    }
+  }
+}
