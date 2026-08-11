@@ -201,7 +201,7 @@ function renderListingBody(listing, index, total, t, locale) {
   return `
     ${pager}
     <img
-      src="${escapeHtml(listing.image_url || no_image)}"
+      src="${escapeHtml(listing.image_url ? `/api/listings/${encodeURIComponent(listing.id)}/image` : no_image)}"
       onerror="this.onerror=null;this.src='${no_image}'"
     />
     <a class="map-popup-content__title" href="#/listings/listing/${encodeURIComponent(listing.id)}">${escapeHtml(listing.title)}</a>

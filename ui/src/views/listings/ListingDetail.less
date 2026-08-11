@@ -114,7 +114,8 @@
 
   /* Sits on a photograph, which is a photograph in both themes, so the scrim behind it is one of
      the literals the palette does not own. */
-  &__image-expand {
+  &__image-expand,
+  &__image-refresh {
     position: absolute;
     top: @space-3;
     right: @space-3;
@@ -135,6 +136,15 @@
 
     &:hover {
       background: rgba(0, 0, 0, 0.78);
+    }
+  }
+
+  // Shares the expand button's rule above, one slot to its left.
+  &__image-refresh {
+    right: calc(@space-3 + 32px + @space-2);
+
+    &:disabled {
+      cursor: progress;
     }
   }
 
