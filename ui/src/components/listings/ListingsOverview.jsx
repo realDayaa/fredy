@@ -15,7 +15,7 @@ import {
   IconStar,
   IconStarStroked,
 } from '@douyinfe/semi-icons';
-import { useNavigate, useSearchParams } from 'react-router';
+import { useSearchParams } from 'react-router';
 import ListingDeletionModal from '../ListingDeletionModal.jsx';
 import { xhrDelete, xhrPost, errorMessage } from '../../services/xhr.js';
 import { useActions, useSelector } from '../../services/state/store.js';
@@ -90,7 +90,6 @@ const ListingsOverview = () => {
   const jobs = useSelector((state) => state.jobsData.jobs);
   const userSettings = useSelector((state) => state.userSettings.settings);
   const actions = useActions();
-  const navigate = useNavigate();
   const sp = useSearchParams();
   const { anyComplete: financeComplete, thresholds: financeThresholds } = useFinanceProfile();
 
@@ -291,11 +290,6 @@ const ListingsOverview = () => {
     }
   };
 
-  const handleNavigate = (id) => {
-    if (isHiddenView) return;
-    navigate(`/listings/listing/${id}`);
-  };
-
   // The store re-throws so a caller can react. These two buttons had no catch at all, so a
   // refused write (a 403 on a locked-down instance) became an unhandled rejection: the toggle
   // silently snapped back and nothing said why.
@@ -481,7 +475,6 @@ const ListingsOverview = () => {
         <ListingsGrid
           listings={listings}
           onWatch={handleWatch}
-          onNavigate={handleNavigate}
           onDelete={handleDelete}
           onRestore={handleRestore}
           isHiddenView={isHiddenView}
@@ -491,7 +484,6 @@ const ListingsOverview = () => {
         <ListingsTable
           listings={listings}
           onWatch={handleWatch}
-          onNavigate={handleNavigate}
           onDelete={handleDelete}
           onRestore={handleRestore}
           isHiddenView={isHiddenView}

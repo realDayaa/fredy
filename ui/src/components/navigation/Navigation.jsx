@@ -53,10 +53,30 @@ export default function Navigation({ isAdmin }) {
     }
   }, [width]);
 
+  // Semi's Nav.Item renders `link` as a real nested <a href>, giving native middle-click
+  // and ctrl/cmd-click "open in new tab" for free - the item's own onClick prop (passed to
+  // <Nav> below) still fires on plain left-click for in-app SPA routing. Without this, an
+  // unmodified left-click would ALSO trigger the anchor's default full-page navigation, so
+  // plain clicks are preventDefault()-ed and left to bubble into that onClick; modified
+  // clicks are left alone for the browser to handle and stopped from also bubbling into it,
+  // so the current tab doesn't navigate alongside the new one.
+  const handleNavLinkClick = (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey) {
+      e.stopPropagation();
+      return;
+    }
+    e.preventDefault();
+  };
+  // The app is a HashRouter, so the anchor needs the `#` itself - a bare "/finance" would open
+  // as a real path (a 404 the SPA fallback then routes to /dashboard) instead of the "#/finance"
+  // route.
+  const navLink = (path) => ({ link: `#${path}`, linkOptions: { onClick: handleNavLinkClick } });
+
   const tree = navTreeFor(isAdmin);
 
   /**
-   * The tree in the shape Semi's `<Nav>` wants: translated labels, icons attached, groups nested.
+   * The tree in the shape Semi's `<Nav>` wants: translated labels, icons attached, groups nested,
+   * and leaf destinations carrying a real anchor (see `navLink`) for native middle/ctrl-click.
    *
    * @param {import('./navModel.js').NavNode[]} nodes
    * @returns {Object[]}
@@ -69,6 +89,7 @@ export default function Navigation({ isAdmin }) {
       // belong to, and a single marked entry among unmarked siblings reads as a different kind of
       // thing rather than as one of them.
       icon: ICONS[node.key],
+      ...(node.key.startsWith('/') ? navLink(node.key) : {}),
       ...(node.children ? { items: toNavItems(node.children) } : {}),
     }));
 
