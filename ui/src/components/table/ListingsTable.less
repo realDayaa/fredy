@@ -33,15 +33,31 @@
     background: @color-elevated;
     border: 1px solid @color-border;
     border-radius: @radius-chip;
-    cursor: pointer;
     transition: background @transition-fast;
 
     &:hover {
       background: @color-solid;
     }
 
+    &:focus-within {
+      outline: none;
+      box-shadow: 0 0 0 2px rgb(@color-accent-rgb / 35%);
+    }
+
     &--inactive {
       opacity: 0.6;
+    }
+
+    &__link {
+      display: contents;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    &__viewLink {
+      color: inherit;
+      text-decoration: none;
     }
 
     &__thumb {
