@@ -47,7 +47,7 @@ const ListingsGrid = ({ listings, onWatch, onNavigate, onDelete, onRestore, isHi
         >
           <div className="listingsGrid__card__image-wrapper">
             <img
-              src={item.image_url || no_image}
+              src={item.image_url ? `/api/listings/${item.id}/image` : no_image}
               alt={item.title}
               onError={(e) => {
                 e.target.src = no_image;

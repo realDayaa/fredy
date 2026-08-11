@@ -37,6 +37,7 @@ import {
   IconDelete,
   IconExpand,
   IconGridView,
+  IconRefresh,
 } from '@douyinfe/semi-icons';
 import maplibregl from '../../components/map/maplibre.js';
 import MapCanvas, { HOME_MARKER_COLOR } from '../../components/map/Map.jsx';
@@ -99,6 +100,7 @@ export default function ListingDetail() {
   const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [notesDraft, setNotesDraft] = useState('');
   const [notesSaving, setNotesSaving] = useState(false);
+  const [imageRefreshing, setImageRefreshing] = useState(false);
   const [priceHistory, setPriceHistory] = useState([]);
   // Set while the user is placing the listing by hand: carries the address text they typed, waiting
   // for the coordinates the map is about to give it.
@@ -293,6 +295,20 @@ export default function ListingDetail() {
     } catch (e) {
       console.error('Failed to operate Watchlist:', e);
       Toast.error(t('listing.detail.toastWatchlistError'));
+    }
+  };
+
+  const handleRefreshImage = async () => {
+    setImageRefreshing(true);
+    try {
+      await xhrPost(`/api/listings/${listing.id}/image/refresh`);
+      Toast.success(t('listing.detail.toastImageRefreshed'));
+      await actions.listingsData.getListing(listingId);
+    } catch (e) {
+      console.error('Failed to refresh listing image:', e);
+      Toast.error(errorMessage(e, t('listing.detail.toastImageRefreshError')));
+    } finally {
+      setImageRefreshing(false);
     }
   };
 
@@ -576,11 +592,23 @@ export default function ListingDetail() {
               className={`listing-detail__image-container${!listing.image_url ? ' listing-detail__image-container--placeholder' : ''}`}
             >
               <Image
-                src={listing.image_url ?? no_image}
+                src={listing.image_url ? `/api/listings/${listing.id}/image` : no_image}
                 fallback={<img src={no_image} alt={t('listing.detail.noImageAlt')} />}
                 style={{ width: '100%', height: '100%' }}
                 preview={!!listing.image_url}
               />
+              {listing.image_url && (
+                <Tooltip content={t('listing.detail.refreshImageHint')}>
+                  <Button
+                    className="listing-detail__image-refresh-btn"
+                    icon={<IconRefresh />}
+                    loading={imageRefreshing}
+                    onClick={handleRefreshImage}
+                    theme="borderless"
+                    aria-label={t('listing.detail.refreshImage')}
+                  />
+                </Tooltip>
+              )}
             </div>
 
             <div className="listing-detail__notes">
