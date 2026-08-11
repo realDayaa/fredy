@@ -58,7 +58,7 @@ const ListingsGrid = ({
             {/* Decorative: the title says the same thing one line below, and alt={item.title} made
                 a screen reader read every headline twice. */}
             <img
-              src={item.image_url || no_image}
+              src={item.image_url ? `/api/listings/${item.id}/image` : no_image}
               alt=""
               onError={(e) => {
                 e.target.src = no_image;

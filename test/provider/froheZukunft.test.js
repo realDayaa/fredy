@@ -36,6 +36,65 @@ describe('#buildGeocodableAddress()', () => {
   });
 });
 
+describe('#rediscoverImage()', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('reads the current image url off the live detail page', async () => {
+    const html = `
+      <div class="posts__picture picture">
+        <div class="picture__media">
+          <img src="https://www.frohe-zukunft.de/wp-content/uploads/mia-import/newhash/5528484.jpg" alt="" class="media__img">
+        </div>
+      </div>`;
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => ({ ok: true, text: async () => html })),
+    );
+
+    const result = await provider.config.rediscoverImage({
+      link: 'https://www.frohe-zukunft.de/wohnfinder/some-listing/',
+    });
+
+    expect(result).toBe('https://www.frohe-zukunft.de/wp-content/uploads/mia-import/newhash/5528484.jpg');
+  });
+
+  it('returns null without a link', async () => {
+    expect(await provider.config.rediscoverImage({ link: null })).toBeNull();
+    expect(await provider.config.rediscoverImage(null)).toBeNull();
+  });
+
+  it('returns null on a non-ok response', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => ({ ok: false, status: 404 })),
+    );
+
+    expect(await provider.config.rediscoverImage({ link: 'https://www.frohe-zukunft.de/wohnfinder/gone/' })).toBeNull();
+  });
+
+  it('returns null when the fetch throws', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => {
+        throw new Error('network down');
+      }),
+    );
+
+    expect(await provider.config.rediscoverImage({ link: 'https://www.frohe-zukunft.de/wohnfinder/x/' })).toBeNull();
+  });
+
+  it('returns null when the page has no picture__media img at all', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => ({ ok: true, text: async () => '<html><body>no photo here</body></html>' })),
+    );
+
+    expect(await provider.config.rediscoverImage({ link: 'https://www.frohe-zukunft.de/wohnfinder/x/' })).toBeNull();
+  });
+});
+
 describe('#froheZukunft testsuite()', () => {
   let browser;
 

@@ -7,7 +7,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { useSelector, useActions } from '../../services/state/store.js';
 import { Banner, Button, Image, Space, Spin, Toast, Typography } from '@douyinfe/semi-ui-19';
-import { IconMaximize } from '@douyinfe/semi-icons';
+import { IconMaximize, IconRefresh } from '@douyinfe/semi-icons';
 
 import maplibregl from '../../components/map/maplibre.js';
 import { MARKER_COLORS } from '../../components/map/markerColors.js';
@@ -112,6 +112,7 @@ export default function ListingDetail() {
   const [imagePreview, setImagePreview] = useState(false);
   const [notesDraft, setNotesDraft] = useState('');
   const [notesSaving, setNotesSaving] = useState(false);
+  const [imageRefreshing, setImageRefreshing] = useState(false);
   const [priceHistory, setPriceHistory] = useState([]);
   // Set while the user is placing the listing by hand: carries the address text they typed, waiting
   // for the coordinates the map is about to give it.
@@ -345,6 +346,20 @@ export default function ListingDetail() {
     }
   };
 
+  const handleRefreshImage = async () => {
+    setImageRefreshing(true);
+    try {
+      await xhrPost(`/api/listings/${listing.id}/image/refresh`);
+      Toast.success(t('listing.detail.toastImageRefreshed'));
+      await actions.listingsData.getListing(listingId);
+    } catch (e) {
+      console.error('Failed to refresh listing image:', e);
+      Toast.error(errorMessage(e, t('listing.detail.toastImageRefreshError')));
+    } finally {
+      setImageRefreshing(false);
+    }
+  };
+
   const handleStatusChange = async (next) => {
     try {
       await actions.listingsData.setListingStatus(listing.id, next);
@@ -528,7 +543,7 @@ export default function ListingDetail() {
           <section className="listing-detail__media listing-detail__sec--media">
             <div className={`listing-detail__image${!listing.image_url ? ' listing-detail__image--placeholder' : ''}`}>
               <Image
-                src={listing.image_url ?? no_image}
+                src={listing.image_url ? `/api/listings/${listing.id}/image` : no_image}
                 fallback={<img src={no_image} alt={t('listing.detail.noImageAlt')} />}
                 alt={listing.title || t('listing.detail.defaultTitle')}
                 style={{ width: '100%', height: '100%' }}
@@ -545,6 +560,19 @@ export default function ListingDetail() {
                   onClick={() => setImagePreview(true)}
                 >
                   <IconMaximize aria-hidden="true" />
+                </button>
+              )}
+              {listing.image_url && (
+                <button
+                  type="button"
+                  className="listing-detail__image-refresh"
+                  aria-label={t('listing.detail.refreshImage')}
+                  title={t('listing.detail.refreshImageHint')}
+                  aria-busy={imageRefreshing}
+                  disabled={imageRefreshing}
+                  onClick={handleRefreshImage}
+                >
+                  <IconRefresh aria-hidden="true" spin={imageRefreshing} />
                 </button>
               )}
             </div>
