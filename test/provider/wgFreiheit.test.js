@@ -57,6 +57,11 @@ describe('#wgFreiheit testsuite()', () => {
         expect(notify.price).toContain('€');
         expect(notify.size).toContain('m²');
       });
+      // every listing on the search page carries a thumbnail, so a run without any
+      // image would mean the crawlFields selector broke against the live markup.
+      expect(notificationObj.payload.every((notify) => notify.image?.startsWith('https://www.wgfreiheit.de'))).toBe(
+        true,
+      );
     },
     TEST_TIMEOUT,
   );
