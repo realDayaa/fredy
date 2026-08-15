@@ -62,6 +62,7 @@ describe('services/jobs/jobExecutionService', () => {
       },
       closeBrowser: async (browser) => {
         calls.closeBrowser.push(browser);
+        if (state.closeBrowserError) throw state.closeBrowserError;
       },
     }));
     vi.doMock(pipelinePath, () => ({
@@ -108,6 +109,7 @@ describe('services/jobs/jobExecutionService', () => {
       users: [],
       providers: [],
       browser: { connected: true },
+      closeBrowserError: null,
     };
   });
 
@@ -209,6 +211,29 @@ describe('services/jobs/jobExecutionService', () => {
     expect(calls.launchBrowser).toEqual([['https://api.example/', {}]]);
     expect(calls.pipeline.map(({ browser }) => browser)).toEqual([state.browser, state.browser, state.browser]);
     expect(calls.closeBrowser).toEqual([state.browser]);
+  });
+
+  it('still marks the job finished when closing the browser throws', async () => {
+    // Regression: CloakBrowser can throw from closeBrowser() itself (e.g. a session-limit
+    // license error). That must not skip markFinished(), or the job is stuck "running" forever
+    // and can never be triggered again without a restart.
+    state.providers = [
+      {
+        metaInformation: { id: 'browser-provider' },
+        createConfig: vi.fn(() => ({ url: 'https://browser.example/', getListings: vi.fn() })),
+      },
+    ];
+    state.jobsById.j1 = {
+      id: 'j1',
+      enabled: true,
+      userId: 'u1',
+      provider: [{ id: 'browser-provider' }],
+    };
+    state.closeBrowserError = new Error('CloakBrowser Pro: session limit reached for your plan.');
+
+    await initService();
+    bus.emit('jobs:runOne', { jobId: 'j1' });
+    await vi.waitFor(() => expect(calls.markFinished).toEqual(['j1']));
   });
 
   describe('demo mode', () => {
