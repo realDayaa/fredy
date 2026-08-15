@@ -116,4 +116,22 @@ describe('closeBrowser', () => {
 
     await expect(closeBrowser(browser)).resolves.toBeUndefined();
   });
+
+  it('still closes the browser when reading its process handle throws', async () => {
+    // CloakBrowser re-validates the license on every call made through the returned browser.
+    // Once the plan's concurrent session limit is hit, `.process()` itself throws - that must
+    // not stop close()/the kill fallback from running, or the session leaks and the limit never
+    // recovers.
+    const close = vi.fn(async () => {});
+    const browser = {
+      close,
+      process: () => {
+        throw new Error('CloakBrowser Pro: session limit reached for your plan.');
+      },
+    };
+
+    await expect(closeBrowser(browser)).resolves.toBeUndefined();
+    expect(close).toHaveBeenCalledTimes(1);
+    expect(killSpy).not.toHaveBeenCalled();
+  });
 });
