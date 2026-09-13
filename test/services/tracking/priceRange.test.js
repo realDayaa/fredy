@@ -169,6 +169,24 @@ const NO_RANGE_IN_URL = [
   ['wgGesucht', 'https://www.wg-gesucht.de/wg-zimmer-in-Duesseldorf.30.0.1.0.html'],
   ['willhaben', 'https://www.willhaben.at/iad/immobilien/mietwohnungen/wien'],
   ['zvgPortal', 'https://www.zvg-portal.de/index.php?button=Suchen&land_abk=sh&obj_arr=3,15,16'],
+  // The Halle-area portals below are small local housing-association sites with no search form at
+  // all - the URL is a static listing page, so there is no price filter to ever find one in.
+  ['froheZukunft', 'https://www.frohe-zukunft.de/wohnfinder/'],
+  ['gwgEigeneScholle', 'https://www.gwgeigenescholle.de/wohnungsangebote/'],
+  ['gwgGartenstadt', 'https://www.gwg-gartenstadt.de/Aktuelle-Angebote.html'],
+  ['gwgHalleNeustadt', 'https://www.gwg-halle.de/wohnen/aktuelle-angebote/'],
+  ['haNeuerWg', 'https://www.haneuer.de/mietangebote/'],
+  ['hallescheBwg', 'https://www.hallebwg.de/wohnen'],
+  ['hwg', 'https://www.wohnen-halle.de/suchergebnisse'],
+  [
+    'isihome',
+    'https://isihome.de/immobilien/vermietung/?nutzungsart=wohnen&ort=halle-saale&typ=wohnung&vermarktungsart=miete&status=offen',
+  ],
+  ['leuwo', 'https://www.leuwo.de/objekte/'],
+  ['livingHalle', 'https://www.living-halle.de/immobilien/miete/'],
+  ['tagWohnen', 'https://tag-wohnen.de/immosuche?filters[property_city][]=Halle+(Saale)&size=10&view=LIST'],
+  ['wgEisenbahn', 'https://www.wgeisenbahn.de/wohnungen/'],
+  ['wgFreiheit', 'https://www.wgfreiheit.de/wohnungsangebote/'],
 ];
 
 const IMMOSCOUT = 'https://www.immobilienscout24.de/Suche/de/nordrhein-westfalen/duesseldorf';
