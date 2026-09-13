@@ -15,6 +15,10 @@ vi.mock('../../lib/mcp/mcpAuthentication.js', () => ({
   authenticateToolCall: vi.fn(() => ({ user: { id: 'u1', isAdmin: false } })),
   checkJobAccess: vi.fn(() => true),
 }));
+// A cache miss, so every case reaches the live-fetch path the guard protects.
+vi.mock('../../lib/services/images/listingImageCache.js', () => ({
+  getCachedListingImage: vi.fn(() => null),
+}));
 
 import { getListingById } from '../../lib/services/storage/listingsStorage.js';
 import { createMcpServer } from '../../lib/mcp/mcpAdapter.js';
