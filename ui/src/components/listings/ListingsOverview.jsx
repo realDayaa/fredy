@@ -291,7 +291,6 @@ const ListingsOverview = () => {
     }
   };
 
-
   // The store re-throws so a caller can react. These two buttons had no catch at all, so a
   // refused write (a 403 on a locked-down instance) became an unhandled rejection: the toggle
   // silently snapped back and nothing said why.
