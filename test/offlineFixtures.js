@@ -116,10 +116,10 @@ export async function readFixture(url, options) {
     return detailProvider == null ? null : tryReadFile(path.join(FIXTURES_DIR, `${detailProvider}_detail.html`));
   }
 
-  // The tecnocasa group numbers its result pages in the path, so every page of a walk has to read
-  // as the search page it is - otherwise page two is served the detail fixture and the walk ends on
-  // the wrong reason.
-  if (providerListPath[providerName] === pathname.replace(/\/pag-\d+$/, '')) {
+  // The tecnocasa group (`/pag-2`) and ISI Home (`/page/2/`) number their result pages in the path,
+  // so every page of a walk has to read as the search page it is - otherwise page two is served the
+  // detail fixture and the walk ends on the wrong reason.
+  if (providerListPath[providerName] === pathname.replace(/\/pag-\d+$/, '').replace(/\/page\/\d+\/?$/, '/')) {
     return tryReadFile(path.join(FIXTURES_DIR, `${providerName}.html`));
   }
 
