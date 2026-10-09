@@ -23,7 +23,7 @@ import logout from '../logout/Logout.jsx';
 import Donate from '../donate/Donate.jsx';
 import ScopeBadge from '../scopeBadge/ScopeBadge.jsx';
 import NewsHistory from '../news/NewsHistory.jsx';
-import { useLocation, useNavigate } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { normalizeTheme } from '../../services/theme/theme.js';
 
 import './Navigate.less';
@@ -97,7 +97,6 @@ Brand.displayName = 'Brand';
  */
 export default function Navigation({ isAdmin }) {
   const t = useTranslation();
-  const navigate = useNavigate();
   const location = useLocation();
 
   const width = useScreenWidth();
@@ -159,16 +158,15 @@ export default function Navigation({ isAdmin }) {
     <div className="navigate-flyout">
       <div className="navigate-flyout__title">{t(node.labelKey)}</div>
       {node.children.map((child) => (
-        <button
+        <Link
           key={child.key}
-          type="button"
+          to={child.key}
           className={`navigate-flyout__item${child.key === activeKey ? ' navigate-flyout__item--active' : ''}`}
           data-tour={child.key}
           aria-current={child.key === activeKey ? 'page' : undefined}
-          onClick={() => navigate(child.key)}
         >
           {t(child.labelKey)}
-        </button>
+        </Link>
       ))}
     </div>
   );
@@ -220,9 +218,13 @@ export default function Navigation({ isAdmin }) {
           // obvious, and an entry that announces nothing simply carries no popover.
           const scope = sectionScope(tree, index);
 
+          // A group only opens, so it stays a button. A destination is a real link: react-router's
+          // <Link> routes a plain click in-app and leaves middle-, Ctrl/Cmd- and Shift-click to the
+          // browser, so an entry can be opened in a new tab like any other link.
+          const Entry = isGroup ? 'button' : Link;
           const item = (
-            <button
-              type="button"
+            <Entry
+              {...(isGroup ? { type: 'button' } : { to: node.key })}
               className={`navigate__item${isActive ? ' navigate__item--active' : ''}`}
               // What the onboarding tour points at when it asks for a click here.
               data-tour={node.key}
@@ -233,17 +235,17 @@ export default function Navigation({ isAdmin }) {
               // not there would be a lie told to a screen reader.
               aria-expanded={isGroup && !collapsed ? open : undefined}
               aria-controls={isGroup && !collapsed ? childrenId : undefined}
-              onClick={() => {
-                if (isGroup) {
-                  // In the rail the children open as a menu beside the entry; a click there must not
-                  // quietly fold or unfold the group for when the sidebar is widened again.
-                  if (!collapsed) {
-                    setToggledGroups((current) => ({ ...current, [node.key]: !open }));
-                  }
-                  return;
-                }
-                navigate(node.key);
-              }}
+              onClick={
+                isGroup
+                  ? () => {
+                      // In the rail the children open as a menu beside the entry; a click there must
+                      // not quietly fold or unfold the group for when the sidebar is widened again.
+                      if (!collapsed) {
+                        setToggledGroups((current) => ({ ...current, [node.key]: !open }));
+                      }
+                    }
+                  : undefined
+              }
             >
               {isActive && <span className="navigate__marker" />}
               <span className="navigate__itemIcon">{ICONS[node.key]}</span>
@@ -255,7 +257,7 @@ export default function Navigation({ isAdmin }) {
                 ) : (
                   <IconChevronDown className="navigate__itemChevron" />
                 ))}
-            </button>
+            </Entry>
           );
 
           return (
@@ -301,19 +303,18 @@ export default function Navigation({ isAdmin }) {
                     const childIsActive = child.key === activeKey;
 
                     return (
-                      <button
+                      <Link
                         key={child.key}
-                        type="button"
+                        to={child.key}
                         className={`navigate__child${childIsActive ? ' navigate__child--active' : ''}`}
                         data-tour={child.key}
                         aria-current={childIsActive ? 'page' : undefined}
-                        onClick={() => navigate(child.key)}
                       >
                         {/* The selection of a child is the rail lighting up beside it, not a second
                             marker of its own. */}
                         <span className="navigate__childRail" />
                         <span className="navigate__childLabel">{t(child.labelKey)}</span>
-                      </button>
+                      </Link>
                     );
                   })}
                 </div>
