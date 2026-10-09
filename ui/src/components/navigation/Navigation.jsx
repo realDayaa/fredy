@@ -9,7 +9,6 @@ import logo from '../../assets/logo.png';
 import logoWhite from '../../assets/logo_white.png';
 import heart from '../../assets/heart.png';
 import logout from '../logout/Logout.jsx';
-import Donate from '../donate/Donate.jsx';
 import NewsHistory from '../news/NewsHistory.jsx';
 import {
   IconAdmin,
@@ -248,11 +247,6 @@ export default function Navigation({ isAdmin }) {
         {statusRow}
 
         <NewsHistory collapsed={collapsed} />
-
-        {/* Shown on the demo instance too. The demo is where most people meet Fredy for the first
-            time, so hiding the one place it asks for support removed it from exactly the audience
-            that has just seen what the project does. */}
-        <Donate collapsed={collapsed} />
 
         {/* In the rail the toggle sits here, directly over the account, rather than among the
             entries at the top where it read as another place to go. */}
