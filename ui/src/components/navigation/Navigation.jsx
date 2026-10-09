@@ -20,7 +20,6 @@ import logo from '../../assets/logo.png';
 import logoWhite from '../../assets/logo_white.png';
 import heart from '../../assets/heart.png';
 import logout from '../logout/Logout.jsx';
-import Donate from '../donate/Donate.jsx';
 import ScopeBadge from '../scopeBadge/ScopeBadge.jsx';
 import NewsHistory from '../news/NewsHistory.jsx';
 import { Link, useLocation } from 'react-router';
@@ -364,13 +363,6 @@ export default function Navigation({ isAdmin }) {
           {toggle}
         </Tooltip>
       )}
-
-      {/* Shown on the demo instance too. The demo is where most people meet Fredy for the first
-          time, so hiding the one place it asks for support removed it from exactly the audience
-          that has just seen what the project does. */}
-      <div className="navigate__donate">
-        <Donate collapsed={collapsed} />
-      </div>
 
       {/* One row where there used to be four controls in four idioms: a ghost button for the news,
           the support button, a permanently red sign-out and a bare toggle icon. */}
