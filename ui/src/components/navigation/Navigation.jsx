@@ -22,7 +22,7 @@ import {
   IconSidebar,
   IconSliders,
 } from '../icons/StrokeIcons.jsx';
-import { useLocation, useNavigate } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { normalizeTheme } from '../../services/theme/theme.js';
 
 import './Navigate.less';
@@ -93,7 +93,6 @@ Brand.displayName = 'Brand';
  */
 export default function Navigation({ isAdmin }) {
   const t = useTranslation();
-  const navigate = useNavigate();
   const location = useLocation();
 
   const width = useScreenWidth();
@@ -203,19 +202,21 @@ export default function Navigation({ isAdmin }) {
           const isActive = node.key === activeKey;
           const count = counts[node.key];
 
+          // A real link rather than a button that calls navigate(): react-router's <Link> routes a
+          // plain click in-app and leaves middle-, Ctrl/Cmd- and Shift-click to the browser, so an
+          // entry can be opened in a new tab like any other link.
           const item = (
-            <button
-              type="button"
+            <Link
+              to={node.key}
               className={`navigate__item${isActive ? ' navigate__item--active' : ''}`}
               // What the onboarding tour points at when it asks for a click here.
               data-tour={node.key}
               aria-current={isActive ? 'page' : undefined}
-              onClick={() => navigate(node.key)}
             >
               <span className="navigate__itemIcon">{Icon && <Icon />}</span>
               {!collapsed && <span className="navigate__itemLabel">{t(node.labelKey)}</span>}
               {!collapsed && count != null && <span className="navigate__itemCount">{count}</span>}
-            </button>
+            </Link>
           );
 
           return (
