@@ -45,8 +45,9 @@ describe('#isihome testsuite()', () => {
           expect(notify.link).toBeTypeOf('string');
           expect(notify.address).toBeTypeOf('string');
           // Every card in the fixture carries price, size and rooms. The payload is formatted, hence
-          // the units, and a decimal point rather than the card's comma shows the figure was parsed.
-          expect(notify.price).toMatch(/^\d+(\.\d+)? €$/);
+          // the units. Prices use German grouping (formatPrice), so that the figure was parsed at all
+          // is left to the normalize tests below; size and rooms still show a decimal point.
+          expect(notify.price).toMatch(/^\d{1,3}(\.\d{3})*(,\d{1,2})? €$/);
           expect(notify.size).toMatch(/^\d+(\.\d+)? m²$/);
           expect(notify.rooms).toMatch(/^\d+(\.\d+)? rooms$/);
           /** check the values if possible **/
