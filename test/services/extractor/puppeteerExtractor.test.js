@@ -49,6 +49,16 @@ describe('launchBrowser proxy forwarding', () => {
     expect(launchMock.mock.calls[0][0]).toMatchObject({ proxy: 'http://user:pass@host:8080' });
   });
 
+  it("switches off Puppeteer's signal handlers so they cannot kill Chromium before shutdown closes it", async () => {
+    await launchBrowser('https://www.immowelt.de/', {});
+
+    expect(launchMock.mock.calls[0][0].launchOptions).toEqual({
+      handleSIGINT: false,
+      handleSIGTERM: false,
+      handleSIGHUP: false,
+    });
+  });
+
   it('does not set a proxy when no proxyUrl is given', async () => {
     await launchBrowser('https://www.immowelt.de/', {});
 
@@ -167,5 +177,73 @@ describe('closeBrowser', () => {
     await expect(closeBrowser(browser)).resolves.toBeUndefined();
     expect(close).toHaveBeenCalledTimes(1);
     expect(killSpy).not.toHaveBeenCalled();
+  });
+});
+
+describe('closeAllBrowsers', () => {
+  // The shutdown flag lives at module scope and never resets, so every test gets a fresh module.
+  /** @type {typeof import('../../../lib/services/extractor/puppeteerExtractor.js')} */
+  let extractor;
+  /** @type {import('vitest').MockInstance} */
+  let killSpy;
+
+  beforeEach(async () => {
+    vi.resetModules();
+    launchMock.mockReset();
+    killSpy = vi.spyOn(process, 'kill').mockImplementation(() => true);
+    extractor = await import('../../../lib/services/extractor/puppeteerExtractor.js');
+  });
+
+  afterEach(() => {
+    killSpy.mockRestore();
+  });
+
+  it('closes every launched browser that was not closed yet', async () => {
+    const first = createBrowser({ alive: false });
+    const second = createBrowser({ alive: false });
+    launchMock.mockResolvedValueOnce(first.browser).mockResolvedValueOnce(second.browser);
+    await extractor.launchBrowser('https://www.immowelt.de/', {});
+    await extractor.launchBrowser('https://www.immowelt.de/', {});
+    await extractor.closeBrowser(first.browser);
+
+    await extractor.closeAllBrowsers();
+
+    expect(first.close).toHaveBeenCalledTimes(1);
+    expect(second.close).toHaveBeenCalledTimes(1);
+  });
+
+  it('refuses to launch a browser once the shutdown began', async () => {
+    await extractor.closeAllBrowsers();
+
+    await expect(extractor.launchBrowser('https://www.immowelt.de/', {})).rejects.toThrow(/shutting down/);
+    expect(launchMock).not.toHaveBeenCalled();
+  });
+
+  it('closes a browser whose launch only finished after the shutdown began', async () => {
+    const { browser, close } = createBrowser({ alive: false });
+    let finishLaunch;
+    launchMock.mockReturnValueOnce(
+      new Promise((resolve) => {
+        finishLaunch = () => resolve(browser);
+      }),
+    );
+    const launching = extractor.launchBrowser('https://www.immowelt.de/', {});
+
+    await extractor.closeAllBrowsers();
+    finishLaunch();
+
+    await expect(launching).rejects.toThrow(/shutting down/);
+    expect(close).toHaveBeenCalledTimes(1);
+  });
+
+  it('kills the process group of a browser whose close() does not finish in time', async () => {
+    const { browser, close } = createBrowser();
+    close.mockImplementation(() => new Promise(() => {}));
+    launchMock.mockResolvedValueOnce(browser);
+    await extractor.launchBrowser('https://www.immowelt.de/', {});
+
+    await extractor.closeAllBrowsers(10);
+
+    expect(killSpy).toHaveBeenCalledWith(-4711, 'SIGKILL');
   });
 });
