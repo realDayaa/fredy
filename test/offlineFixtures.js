@@ -209,6 +209,8 @@ const FETCHED_PAGE_HOSTS = [
   'www.idealista.pt',
   'tecnocasa.it',
   'tecnorete.it',
+  // the search page goes through the extractor, each card's exposé over plain fetch
+  'www.frohe-zukunft.de',
 ];
 
 /** The app's api, on any of its three national hosts. `<cc>` follows the version in every path. */

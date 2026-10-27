@@ -7,10 +7,50 @@ import * as similarityCache from '../../lib/services/similarity-check/similarity
 import { get } from '../mocks/mockNotification.js';
 import { providerConfig, mockFredy } from '../utils.js';
 import { expect } from 'vitest';
+import { readFile } from 'fs/promises';
 import * as provider from '../../lib/provider/froheZukunft.js';
 import { launchBrowser, closeBrowser } from '../../lib/services/extractor/puppeteerExtractor.js';
 
 const TEST_TIMEOUT = 120_000;
+
+/** The "Mietpreis" row of the recorded exposé; its Gesamtmiete is 391,00 €. */
+const RECORDED_COLD_RENT = 247;
+
+/**
+ * An exposé's "Preise und Kosten" table holding the given rows.
+ *
+ * @param {[string, string][]} rows Label and value of each row.
+ * @returns {string}
+ */
+const exposeWith = (rows) =>
+  `<div class="datatable"><table><tbody>${rows.map(([label, value]) => `<tr><td>${label}</td><td>${value}</td></tr>`).join('')}</tbody></table></div>`;
+
+describe('#parseColdRent()', () => {
+  it('reads the cold rent of the recorded exposé, not its total rent', async () => {
+    const html = await readFile(new URL('../testFixtures/froheZukunft_detail.html', import.meta.url), 'utf-8');
+    expect(provider.parseColdRent(html)).toBe(RECORDED_COLD_RENT);
+  });
+
+  it('reads the row by its label, wherever it sits in the table', () => {
+    const html = exposeWith([
+      ['Gesamtmiete', '1.405,00 €'],
+      ['Mietpreis', '1.080,50 €'],
+    ]);
+    expect(provider.parseColdRent(html)).toBe(1080.5);
+  });
+
+  it('returns null when the exposé has no Mietpreis row', () => {
+    expect(provider.parseColdRent(exposeWith([['Gesamtmiete', '391,00 €']]))).toBeNull();
+  });
+
+  it('returns null when the Mietpreis row is empty', () => {
+    expect(provider.parseColdRent(exposeWith([['Mietpreis', ' ']]))).toBeNull();
+  });
+
+  it('returns null for no page at all', () => {
+    expect(provider.parseColdRent(null)).toBeNull();
+  });
+});
 
 describe('#buildGeocodableAddress()', () => {
   it('drops a compound district that breaks the Nominatim query', () => {
@@ -81,6 +121,10 @@ describe('#froheZukunft testsuite()', () => {
         // Garage/parking listings have no room or size figures, so only price is guaranteed.
         expect(notify.price).toContain('€');
       });
+      if (process.env.TEST_MODE === 'offline') {
+        // Every exposé is served the recorded one, so every card has to carry its cold rent.
+        liveListings.forEach((listing) => expect(listing.price).toBe(RECORDED_COLD_RENT));
+      }
     },
     TEST_TIMEOUT,
   );

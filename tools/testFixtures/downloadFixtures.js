@@ -863,6 +863,12 @@ async function detailUrlFromGetListings(providerConfig, browser) {
   return null;
 }
 
+/**
+ * Providers that read every card's exposé inside `getListings` rather than in a `fetchDetails`
+ * (Frohe Zukunft's cold rent is only on the exposé), and so need a detail fixture all the same.
+ */
+const EXPOSE_IN_SEARCH_PROVIDERS = new Set(['froheZukunft']);
+
 async function downloadHtmlProvider(name, providerConfig, launchBrowser, closeBrowser, puppeteerExtractor) {
   console.log(`\nDownloading ${name}...`);
 
@@ -887,7 +893,8 @@ async function downloadHtmlProvider(name, providerConfig, launchBrowser, closeBr
 
     // the detail url is taken from the normalized listing, so providers that build their link
     // inside normalize() instead of exposing a `link` crawl field are covered as well
-    const needsDetailFixture = typeof providerConfig.fetchDetails === 'function';
+    const needsDetailFixture =
+      typeof providerConfig.fetchDetails === 'function' || EXPOSE_IN_SEARCH_PROVIDERS.has(name);
 
     if (needsDetailFixture) {
       const detailUrl =
