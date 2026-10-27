@@ -200,6 +200,15 @@ describe('#fetchDetails()', () => {
     const listing = { id: 'x', link: EXPOSE_LINK, title: 'Garage', price: 50 };
     expect(await provider.config.fetchDetails(listing)).toBe(listing);
   });
+
+  it('takes a redirect for a removed exposé, and does not read the homepage it leads to', async () => {
+    const fetchSpy = vi
+      .spyOn(globalThis, 'fetch')
+      .mockResolvedValue({ ok: false, status: 301, text: () => Promise.resolve('') });
+    const listing = { id: 'x', link: EXPOSE_LINK, title: 'Kleine, feine 2-Zimmerwohnung', price: 247 };
+    expect(await provider.config.fetchDetails(listing)).toBe(listing);
+    expect(fetchSpy).toHaveBeenCalledWith(EXPOSE_LINK, expect.objectContaining({ redirect: 'manual' }));
+  });
 });
 
 describe('#buildGeocodableAddress()', () => {
